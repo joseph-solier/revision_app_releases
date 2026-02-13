@@ -5,12 +5,12 @@
     <description>Automatic updates for RevisionApp</description>
     <language>fr</language>
     <item>
-      <title>Version 1.1.19</title>
-      <pubDate>Fri, 13 Feb 2026 13:09:58 +0000</pubDate>
-      <sparkle:version>1.1.19</sparkle:version>
-      <sparkle:shortVersionString>1.1.19</sparkle:shortVersionString>
+      <title>Version 1.1.18</title>
+      <pubDate>Fri, 13 Feb 2026 13:11:25 +0000</pubDate>
+      <sparkle:version>1.1.18</sparkle:version>
+      <sparkle:shortVersionString>1.1.18</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
-      <enclosure url="https://github.com/joseph-solier/revision_app_releases/releases/download/v1.1.19/RevisionApp-macOS.dmg" length="22226025" type="application/octet-stream"/>
+      <enclosure url="https://github.com/joseph-solier/revision_app_releases/releases/download/v1.1.18/RevisionApp-macOS.dmg" length="22226058" type="application/octet-stream"/>
     </item>
   </channel>
 </rss>
