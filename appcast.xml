@@ -1,23 +1,16 @@
-<?xml version="1.0" standalone="yes"?>
-<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.sparkle-project.org/xml-namespaces/sparkle">
   <channel>
-    <title>revision_app</title>
-
+    <title>RevisionApp Updates</title>
+    <description>Automatic updates for RevisionApp</description>
+    <language>fr</language>
     <item>
-      <title>Version 1.0.3</title>
-
-      <pubDate>Thu, 12 Feb 2026 17:06:05 +0100</pubDate>
-
-      <sparkle:version>3</sparkle:version>
-      <sparkle:shortVersionString>1.0.3</sparkle:shortVersionString>
-
+      <title>Version 1.1.13</title>
+      <pubDate>Fri, 13 Feb 2026 11:07:35 +0000</pubDate>
+      <sparkle:version>1.1.13</sparkle:version>
+      <sparkle:shortVersionString>1.1.13</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
-
-      <enclosure
-        url="https://github.com/joseph-solier/revision_app_releases/releases/download/v1.0.3/revision_app.dmg"
-        length="21346597"
-        type="application/octet-stream"/>
+      <enclosure url="https://github.com/joseph-solier/revision_app_releases/releases/download/v1.1.13/RevisionApp-macOS.dmg" length="22226106" type="application/octet-stream"/>
     </item>
-
   </channel>
 </rss>
