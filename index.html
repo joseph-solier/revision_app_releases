@@ -17,7 +17,6 @@
     --muted: #6b7280;
     --mac: #4f8aff;
     --win: #38bdf8;
-    --linux: #f59e0b;
     --success: #34d399;
   }
 
@@ -31,7 +30,6 @@
     overflow-x: hidden;
   }
 
-  /* Background grid */
   body::before {
     content: '';
     position: fixed;
@@ -44,350 +42,155 @@
     z-index: 0;
   }
 
-  /* Glow orbs */
   .orb {
-    position: fixed;
-    border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.12;
-    pointer-events: none;
-    z-index: 0;
+    position: fixed; border-radius: 50%;
+    filter: blur(120px); opacity: 0.12;
+    pointer-events: none; z-index: 0;
   }
   .orb-1 { width: 600px; height: 600px; background: var(--accent); top: -200px; left: -100px; }
   .orb-2 { width: 500px; height: 500px; background: var(--accent2); bottom: -150px; right: -100px; }
 
   .container {
-    position: relative;
-    z-index: 1;
-    max-width: 860px;
-    margin: 0 auto;
+    position: relative; z-index: 1;
+    max-width: 860px; margin: 0 auto;
     padding: 80px 24px 60px;
   }
 
-  /* Header */
-  header {
-    text-align: center;
-    margin-bottom: 72px;
-    animation: fadeUp 0.7s ease both;
-  }
+  header { text-align: center; margin-bottom: 72px; animation: fadeUp 0.7s ease both; }
 
   .badge {
-    display: inline-block;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent);
-    background: rgba(79,138,255,0.1);
+    display: inline-block; font-size: 11px;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent); background: rgba(79,138,255,0.1);
     border: 1px solid rgba(79,138,255,0.2);
-    padding: 5px 14px;
-    border-radius: 100px;
-    margin-bottom: 28px;
+    padding: 5px 14px; border-radius: 100px; margin-bottom: 28px;
   }
 
   h1 {
     font-family: 'Fraunces', serif;
     font-size: clamp(48px, 8vw, 80px);
-    font-weight: 300;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    color: var(--text);
-    margin-bottom: 20px;
+    font-weight: 300; line-height: 1.05;
+    letter-spacing: -0.02em; margin-bottom: 20px;
   }
-
-  h1 em {
-    font-style: italic;
-    color: var(--accent);
-  }
+  h1 em { font-style: italic; color: var(--accent); }
 
   .subtitle {
-    font-family: 'DM Mono', monospace;
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.7;
-    max-width: 480px;
-    margin: 0 auto;
+    font-size: 14px; color: var(--muted);
+    line-height: 1.7; max-width: 480px; margin: 0 auto;
   }
 
-  /* Version bar */
   .version-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 52px;
-    animation: fadeUp 0.7s 0.1s ease both;
-    flex-wrap: wrap;
+    display: flex; align-items: center; justify-content: center;
+    gap: 20px; margin-bottom: 52px;
+    animation: fadeUp 0.7s 0.1s ease both; flex-wrap: wrap;
   }
-
-  .version-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 13px;
-    color: var(--muted);
-  }
-
-  .version-tag span {
-    color: var(--success);
-    font-weight: 500;
-  }
-
+  .version-tag { font-size: 13px; color: var(--muted); }
+  .version-tag span { color: var(--success); font-weight: 500; }
   .separator { color: var(--border); }
 
-  /* Download cards */
   .cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-bottom: 48px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px; margin-bottom: 48px;
+    max-width: 580px; margin-left: auto; margin-right: auto;
     animation: fadeUp 0.7s 0.2s ease both;
   }
 
-  @media (max-width: 640px) {
-    .cards { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 500px) { .cards { grid-template-columns: 1fr; } }
 
   .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 28px 24px;
-    text-align: center;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px 24px; text-align: center;
     transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
-    position: relative;
-    overflow: hidden;
+    position: relative; overflow: hidden;
   }
-
   .card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    border-radius: 16px 16px 0 0;
-    opacity: 0;
-    transition: opacity 0.2s;
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 2px; border-radius: 16px 16px 0 0; opacity: 0; transition: opacity 0.2s;
   }
-
   .card:hover { transform: translateY(-4px); }
   .card:hover::before { opacity: 1; }
   .card.mac::before { background: var(--mac); }
   .card.win::before { background: var(--win); }
-  .card.linux::before { background: var(--linux); }
   .card.mac:hover { border-color: rgba(79,138,255,0.3); box-shadow: 0 20px 60px rgba(79,138,255,0.08); }
   .card.win:hover { border-color: rgba(56,189,248,0.3); box-shadow: 0 20px 60px rgba(56,189,248,0.08); }
-  .card.linux:hover { border-color: rgba(245,158,11,0.3); box-shadow: 0 20px 60px rgba(245,158,11,0.08); }
 
-  .os-icon {
-    font-size: 40px;
-    margin-bottom: 16px;
-    display: block;
-    line-height: 1;
-  }
-
-  .os-name {
-    font-family: 'Fraunces', serif;
-    font-size: 22px;
-    font-weight: 300;
-    margin-bottom: 6px;
-    color: var(--text);
-  }
+  .os-icon { font-size: 40px; margin-bottom: 16px; display: block; }
+  .os-name { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; margin-bottom: 6px; }
 
   .os-format {
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    margin-bottom: 24px;
-    min-height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 4px;
+    font-size: 11px; color: var(--muted); letter-spacing: 0.1em;
+    margin-bottom: 24px; min-height: 30px;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 4px;
   }
-
-  .os-format a {
-    color: var(--muted);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
+  .os-format a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
   .os-format a:hover { color: var(--text); text-decoration: underline; }
 
   .dl-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    padding: 11px 16px;
-    border-radius: 8px;
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.15s;
-    margin-bottom: 8px;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    width: 100%; padding: 11px 16px; border-radius: 8px;
+    font-family: 'DM Mono', monospace; font-size: 12px;
+    font-weight: 500; letter-spacing: 0.05em;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: all 0.15s; margin-bottom: 8px;
   }
-
   .card.mac .dl-btn.primary { background: var(--mac); color: #fff; }
   .card.win .dl-btn.primary { background: var(--win); color: #0d0f14; }
-  .card.linux .dl-btn.primary { background: var(--linux); color: #0d0f14; }
-
   .dl-btn.primary:hover { filter: brightness(1.15); transform: scale(1.02); }
-
-  .dl-btn.secondary {
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--muted);
-  }
+  .dl-btn.secondary { background: transparent; border: 1px solid var(--border); color: var(--muted); }
   .dl-btn.secondary:hover { border-color: var(--text); color: var(--text); }
 
-  /* Loading / error states */
   .loading-state {
-    text-align: center;
-    color: var(--muted);
-    font-size: 12px;
-    padding: 8px 0;
-    min-height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center; color: var(--muted); font-size: 12px;
+    padding: 8px 0; min-height: 40px;
+    display: flex; align-items: center; justify-content: center;
   }
-
   .spinner {
     width: 14px; height: 14px;
-    border: 2px solid var(--border);
-    border-top-color: var(--accent);
-    border-radius: 50%;
-    animation: spin 0.7s linear infinite;
-    display: inline-block;
-    margin-right: 8px;
-    vertical-align: middle;
+    border: 2px solid var(--border); border-top-color: var(--accent);
+    border-radius: 50%; animation: spin 0.7s linear infinite;
+    display: inline-block; margin-right: 8px; vertical-align: middle;
   }
 
-  /* Info section */
   .info-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 48px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px; margin-bottom: 48px;
     animation: fadeUp 0.7s 0.3s ease both;
   }
-
   @media (max-width: 640px) { .info-row { grid-template-columns: 1fr; } }
 
   .info-box {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px 22px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px 22px;
   }
-
   .info-box h3 {
-    font-family: 'Fraunces', serif;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin-bottom: 14px;
+    font-family: 'Fraunces', serif; font-size: 13px; font-weight: 600;
+    color: var(--muted); text-transform: uppercase;
+    letter-spacing: 0.12em; margin-bottom: 14px;
   }
+  .feature-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .feature-list li { font-size: 12px; color: var(--text); display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+  .feature-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; margin-top: 1px; }
 
-  .feature-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .feature-list li {
-    font-size: 12px;
-    color: var(--text);
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    line-height: 1.5;
-  }
-
-  .feature-list li::before {
-    content: '→';
-    color: var(--accent);
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  /* Intervals */
-  .intervals {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 4px;
-  }
-
+  .intervals { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
   .interval-chip {
-    font-size: 11px;
-    padding: 4px 10px;
-    border-radius: 100px;
-    background: rgba(79,138,255,0.08);
-    border: 1px solid rgba(79,138,255,0.15);
+    font-size: 11px; padding: 4px 10px; border-radius: 100px;
+    background: rgba(79,138,255,0.08); border: 1px solid rgba(79,138,255,0.15);
     color: var(--accent);
   }
 
-  /* Footer */
-  footer {
-    text-align: center;
-    animation: fadeUp 0.7s 0.4s ease both;
-  }
-
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-  }
-
+  footer { text-align: center; animation: fadeUp 0.7s 0.4s ease both; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
   .footer-links a {
-    font-size: 12px;
-    color: var(--muted);
-    text-decoration: none;
-    transition: color 0.15s;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+    font-size: 12px; color: var(--muted); text-decoration: none;
+    transition: color 0.15s; display: flex; align-items: center; gap: 6px;
   }
   .footer-links a:hover { color: var(--text); }
+  .footer-note { font-size: 11px; color: var(--border); letter-spacing: 0.05em; }
 
-  .footer-note {
-    font-size: 11px;
-    color: var(--border);
-    letter-spacing: 0.05em;
-  }
-
-  /* Animations */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
-
-  /* Config banner */
-  .config-note {
-    background: rgba(245,158,11,0.07);
-    border: 1px solid rgba(245,158,11,0.2);
-    border-radius: 10px;
-    padding: 14px 18px;
-    font-size: 11px;
-    color: #f59e0b;
-    margin-bottom: 32px;
-    text-align: center;
-    animation: fadeUp 0.7s 0.15s ease both;
-    display: none; /* shown only in edit mode */
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes spin { to { transform: rotate(360deg); } }
 </style>
 </head>
 <body>
@@ -407,44 +210,22 @@
     <div class="separator">·</div>
     <div class="version-tag">Date : <span id="release-date">—</span></div>
     <div class="separator">·</div>
-    <div class="version-tag">macOS · Windows · Linux</div>
+    <div class="version-tag">macOS · Windows</div>
   </div>
 
   <div class="cards">
-    <!-- macOS -->
     <div class="card mac">
       <span class="os-icon">🍎</span>
       <div class="os-name">macOS</div>
-      <div class="os-format" id="mac-formats">
-        <span class="spinner" style="width:12px;height:12px"></span>
-      </div>
-      <div id="mac-buttons">
-        <div class="loading-state"><span class="spinner"></span>Chargement…</div>
-      </div>
+      <div class="os-format" id="mac-formats"><span class="spinner" style="width:12px;height:12px"></span></div>
+      <div id="mac-buttons"><div class="loading-state"><span class="spinner"></span>Chargement…</div></div>
     </div>
 
-    <!-- Windows -->
     <div class="card win">
       <span class="os-icon">🪟</span>
       <div class="os-name">Windows</div>
-      <div class="os-format" id="win-formats">
-        <span class="spinner" style="width:12px;height:12px"></span>
-      </div>
-      <div id="win-buttons">
-        <div class="loading-state"><span class="spinner"></span>Chargement…</div>
-      </div>
-    </div>
-
-    <!-- Linux -->
-    <div class="card linux">
-      <span class="os-icon">🐧</span>
-      <div class="os-name">Linux</div>
-      <div class="os-format" id="linux-formats">
-        <span class="spinner" style="width:12px;height:12px"></span>
-      </div>
-      <div id="linux-buttons">
-        <div class="loading-state"><span class="spinner"></span>Chargement…</div>
-      </div>
+      <div class="os-format" id="win-formats"><span class="spinner" style="width:12px;height:12px"></span></div>
+      <div id="win-buttons"><div class="loading-state"><span class="spinner"></span>Chargement…</div></div>
     </div>
   </div>
 
@@ -478,15 +259,15 @@
 
   <footer>
     <div class="footer-links">
-      <a href="https://github.com/joseph-solier/revision_app_releases" id="gh-link" target="_blank">
+      <a href="https://github.com/joseph-solier/revision_app_releases" target="_blank">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.745 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
         Code source
       </a>
-      <a href="https://github.com/joseph-solier/revision_app_releases/releases" id="releases-link" target="_blank">
+      <a href="https://github.com/joseph-solier/revision_app_releases/releases" target="_blank">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 17 21 12 16 7"></polyline><path d="M21 12H9M3 6v4m0 4v4"></path></svg>
         Toutes les releases
       </a>
-      <a href="https://github.com/joseph-solier/revision_app_releases/issues" id="issues-link" target="_blank">
+      <a href="https://github.com/joseph-solier/revision_app_releases/issues" target="_blank">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
         Signaler un bug
       </a>
@@ -497,40 +278,25 @@
 </div>
 
 <script>
-  // ╔══════════════════════════════════════════════════════════╗
-  // ║  CONFIGURATION — mets à jour ces 2 valeurs              ║
-  // ╚══════════════════════════════════════════════════════════╝
-  const GITHUB_USER = 'joseph-solier';   // ← ton username GitHub
-  const GITHUB_REPO = 'revision_app_releases';         // ← nom exact du repo
+  const GITHUB_USER = 'joseph-solier';
+  const GITHUB_REPO = 'revision_app_releases';
 
-  // Patterns pour détecter les assets par OS
-  // Adapter si tes fichiers ont un autre naming convention
+  // Patterns de détection des assets par OS
   const OS_PATTERNS = {
     mac: [
-      { ext: '.dmg',      label: 'macOS DMG',       primary: true  },
-      { ext: '-mac.zip',  label: 'macOS ZIP',        primary: false },
+      { ext: '.dmg',        label: 'macOS DMG', primary: true  },
+      { ext: '-macOS.zip',  label: 'macOS ZIP', primary: false },
+      { ext: '-mac.zip',    label: 'macOS ZIP', primary: false },
     ],
     win: [
-      { ext: '.exe',      label: 'Installeur .exe',  primary: true  },
-      { ext: '-win.zip',  label: 'Windows ZIP',      primary: false },
-    ],
-    linux: [
-      { ext: '.AppImage', label: 'AppImage',          primary: true  },
-      { ext: '.deb',      label: 'Debian/Ubuntu',     primary: false },
-      { ext: '.tar.gz',   label: 'Archive tar.gz',    primary: false },
+      { ext: '.exe',           label: 'Installeur .exe', primary: true },
+      { ext: '-Windows.zip',   label: 'Windows ZIP',     primary: true },
+      { ext: '-win.zip',       label: 'Windows ZIP',     primary: true },
     ],
   };
 
-  // ───────────────────────────────────────────────────────────
-  // Met à jour tous les liens GitHub avec les vrais URLs
-  const base = `https://github.com/${GITHUB_USER}/${GITHUB_REPO}`;
-  document.getElementById('gh-link').href       = base;
-  document.getElementById('releases-link').href = `${base}/releases`;
-  document.getElementById('issues-link').href   = `${base}/issues`;
-
   function formatDate(iso) {
-    const d = new Date(iso);
-    return d.toLocaleDateString('fr-FR', { day:'numeric', month:'long', year:'numeric' });
+    return new Date(iso).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
   }
 
   function buildButtons(containerId, formatsId, assets, patterns) {
@@ -554,17 +320,19 @@
     }
 
     formatsEl.innerHTML = matches.map(m =>
-      `<a href="${m.url}">${m.label} · ${(m.size/1024/1024).toFixed(1)} Mo</a>`
+      `<a href="${m.url}">${m.label} · ${(m.size / 1024 / 1024).toFixed(1)} Mo</a>`
     ).join('');
 
     container.innerHTML = matches.map(m => `
       <a class="dl-btn ${m.primary ? 'primary' : 'secondary'}" href="${m.url}" download>
-        ${m.primary ? '↓ Télécharger' : '⬇'} ${m.label}
+        ↓ ${m.label}
       </a>
     `).join('');
   }
 
   async function loadRelease() {
+    // /releases/latest retourne maintenant la bonne version
+    // grâce au flag make_latest: true dans le workflow CI
     const api = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/releases/latest`;
     try {
       const res = await fetch(api, { headers: { 'Accept': 'application/vnd.github+json' } });
@@ -575,22 +343,14 @@
       document.getElementById('release-date').textContent = formatDate(release.published_at);
 
       const assets = release.assets || [];
-
-      buildButtons('mac-buttons',   'mac-formats',   assets, OS_PATTERNS.mac);
-      buildButtons('win-buttons',   'win-formats',   assets, OS_PATTERNS.win);
-      buildButtons('linux-buttons', 'linux-formats', assets, OS_PATTERNS.linux);
+      buildButtons('mac-buttons', 'mac-formats', assets, OS_PATTERNS.mac);
+      buildButtons('win-buttons', 'win-formats', assets, OS_PATTERNS.win);
 
     } catch (e) {
-      const msg = GITHUB_USER === 'joseph-solier'
-        ? '⚠ Configure GITHUB_USER et GITHUB_REPO dans le script'
-        : `Impossible de charger la release (${e.message})`;
       document.getElementById('version-label').textContent = '—';
-      ['mac-buttons','win-buttons','linux-buttons'].forEach(id => {
+      ['mac-buttons', 'win-buttons'].forEach(id => {
         document.getElementById(id).innerHTML =
-          `<div class="loading-state" style="color:var(--linux);font-size:11px;flex-direction:column;gap:4px">${msg}</div>`;
-      });
-      ['mac-formats','win-formats','linux-formats'].forEach(id => {
-        document.getElementById(id).textContent = '';
+          `<div class="loading-state" style="color:#f59e0b;font-size:11px">${e.message}</div>`;
       });
     }
   }
